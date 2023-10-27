@@ -1,2 +1,5 @@
 # MCF2023
-Lezioni,Programme e esercitazioni del corso Metodi Computazionali per la Fisica
+
+Salve a tutti :* !
+ 
+Qui sotto saranno condivise i .py e i data delle diverse lezioni di MCF del 2023.
