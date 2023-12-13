@@ -22,8 +22,6 @@ from tqdm import tqdm
 
 
 def random_walk(s, N):
-
-
     deltax = np.array([0])
     tmpx = 0
     phi=np.random.uniform(0,2*np.pi,N)
@@ -45,8 +43,57 @@ def spost(x,y):
     spostx=np.array([0])
     sposty=np.array([0])
     for i in range(1,len(x)):
-        spostx=np.append(spostx,(x[i]-x[i-1])**2)
-        sposty=np.append(sposty,(y[i]-y[i-1])**2)
+        spostx=np.append(spostx,(x[i]-x[0])**2)
+        sposty=np.append(sposty,(y[i]-y[0])**2)
     return spostx,sposty
 
+
+def uniform_phi(N):
+    s=np.random.uniform(0,1,N)
+    inv_c=2*np.arccos(1-2*s)
+    return inv_c
+
+def random_walk_phi(s, N):
+    deltax = np.array([0])
+    tmpx = 0
+    phi=uniform_phi(N)
+    for i in range(0,N):
+        tmpx = tmpx+s*np.cos(phi[i])
+        deltax = np.append(deltax, tmpx)
+    
+
+    deltay = np.array([0])
+    tmpy = 0
+    for i in range(0,N):
+        tmpy = tmpy+s*np.sin(phi[i])
+        deltay = np.append(deltay, tmpy)
+    return deltax,deltay
+
+def uniform_phi_cost(N,c):
+    s=np.random.uniform(0,1,N)
+    inv_c=2*np.arccos(1-2*s)+c
+    return inv_c
+
+
+def random_walk_phi_cost(s, N,molt):
+    deltax = np.array([0])
+    tmpx = 0
+    c=np.random.uniform(0,300,N)
+    phi=uniform_phi(N)
+    for i in c:
+        if i<=199:
+            for i in range(0,N):
+                tmpx = tmpx+s*np.cos(phi[i])+molt*c
+                deltax = np.append(deltax, tmpx)
+        else:
+            for i in range(0,N):
+                tmpx = tmpx+s*np.cos(phi[i])
+                deltax = np.append(deltax, tmpx)
+
+    deltay = np.array([0])
+    tmpy = 0
+    for i in range(0,N):
+        tmpy = tmpy+s*np.sin(phi[i])
+        deltay = np.append(deltay, tmpy)
+    return deltax,deltay
 

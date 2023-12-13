@@ -16,7 +16,7 @@ from funzioni import random_walk,spost
 
 b=input("Vuoi vedere la traiettoria? (y/n)\n")
 if b=="y":
-
+    
     primo = random_walk(1,1000)
     secondo= random_walk(1,1000)
     terzo = random_walk(1,1000)   
@@ -25,11 +25,11 @@ if b=="y":
 
     fig, ((ax1,ax2),(ax3,ax4),(ax5,ax6)) = plt.subplots(3,2, figsize=(10, 20))
 
-    ax1.plot(primo[0], primo[1],".")
-    ax2.plot(secondo[0], secondo[1],".")
-    ax3.plot(terzo[0], terzo[1],".")
-    ax4.plot(quarto[0], quarto[1],".")
-    ax5.plot(quinto[0], quinto[1],".")
+    ax1.plot(primo[0], primo[1])
+    ax2.plot(secondo[0], secondo[1])
+    ax3.plot(terzo[0], terzo[1])
+    ax4.plot(quarto[0], quarto[1])
+    ax5.plot(quinto[0], quinto[1])
     ax6.set_visible(False)
 
     ax1.set_xlabel('Delta X')
@@ -138,11 +138,11 @@ if b =="y":
 
     fig, ((ax1,ax2),(ax3,ax4),(ax5,ax6)) = plt.subplots(3,2, figsize=(10, 20))
 
-    ax1.plot(spost_primo[0], spost_primo[1],"--")
-    ax2.plot(spost_secondo[0], spost_secondo[1],"--")
-    ax3.plot(spost_terzo[0], spost_terzo[1],"--")
-    ax4.plot(spost_quarto[0], spost_quarto[1],"--")
-    ax5.plot(spost_quinto[0], spost_quinto[1],"--")
+    ax1.plot(spost_primo[0], spost_primo[1])
+    ax2.plot(spost_secondo[0], spost_secondo[1])
+    ax3.plot(spost_terzo[0], spost_terzo[1])
+    ax4.plot(spost_quarto[0], spost_quarto[1])
+    ax5.plot(spost_quinto[0], spost_quinto[1])
     ax6.set_visible(False)
 
 
